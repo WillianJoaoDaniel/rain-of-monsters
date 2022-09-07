@@ -5,10 +5,11 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 
 public class FabricaDeNotificacoes {
     String filePath;
-    FabricaDeNotificacoes() {
+    public FabricaDeNotificacoes() {
         try {
             File file = new File(".");
             filePath = file.getCanonicalPath();
@@ -17,13 +18,15 @@ public class FabricaDeNotificacoes {
         }
     }
 
-    public Image criarImagensNotificacao(String tipo) {        
- 
+    public Image criarImagensNotificacao(String tipo) throws SlickException {        
         Image img = null;
-        //Termine a implementacao da fabrica
-        //use a imagem gameover.png para notificar que o usuario perdeu o jogo 
-        //e use as imagem ganhou.png para notiricar que o usuario genhou o jogo
-      
+        if(tipo.equalsIgnoreCase("gameover")){
+            img = new Image(filePath + "\\src\\main\\java\\gameover.png");
+        }
+        else if (tipo.equalsIgnoreCase("ganhouJogo")){
+            img = new Image(filePath + "\\src\\main\\java\\ganhou.png");
+        }
+        
         return img;
     }
 

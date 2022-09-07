@@ -9,9 +9,9 @@
  * @author felipe
  */
 import game.observer.ControleColisao;
-import game.Heroi;
-import game.Inimigo;
-import game.InimigoEsperto;
+import game.personagens.Heroi;
+import game.personagens.Inimigo;
+import game.personagens.InimigoEsperto;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.newdawn.slick.AppGameContainer;
@@ -21,6 +21,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import game.fabrica.FabricaDeNotificacoes;
 import java.io.*;
 
 public class SimpleSlickGame extends BasicGame {
@@ -61,10 +62,10 @@ public class SimpleSlickGame extends BasicGame {
             
             inimigoEsperto = new InimigoEsperto(filePath + "\\src\\main\\java\\devil3.png", 200, -250);
             
-            
-            
-            gameover = new Image(filePath + "\\src\\main\\java\\gameover.png");
-            ganhouJogo = new Image(filePath + "\\src\\main\\java\\ganhou.png");
+            FabricaDeNotificacoes fabrica = new FabricaDeNotificacoes();
+
+            gameover = fabrica.criarImagensNotificacao("gameover");
+            ganhouJogo = fabrica.criarImagensNotificacao("ganhouJogo");
 
             
             heroi.addMonitores(inimigo1);

@@ -1,7 +1,6 @@
 
-package game;
+package game.personagens;
 
-import game.observer.Observavel;
 import game.observer.Observavel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
